@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 2</title>
+</head>
+<body>
+    <h1 style="text-align: center;">QUIZ NO 2</h1>
+    <h2 style="text-align: center;">see in console</h2>
+</body>
+<script>
+    function isPalindrome(str) {
+    // Convert the string to lowercase to make the comparison case-insensitive
+    str = str.toLowerCase();
+    
+    // Initialize two pointers, one at the beginning and one at the end of the string
+    let left = 0;
+    let right = str.length - 1;
+    
+    // Iterate through the string from both ends towards the center
+    while (left < right) {
+        // If characters at current positions don't match, return false
+        if (str[left] !== str[right]) {
+            return false;
+        }
+        // Move the pointers towards the center
+        left++;
+        right--;
+    }
+    // If the loop completes without returning false, the string is a palindrome
+    return true;
+}
+console.log(isPalindrome("level")); // true
+console.log(isPalindrome("radar")); // true
+console.log(isPalindrome("A man, a plan, a canal, Panama")); // true
+console.log(isPalindrome("hello")); // false
+console.log(isPalindrome("12321")); // true
+console.log(isPalindrome("racecar")); // true
+
+
+
+// -------------------------------------------------------------------------
+// Minimum and Maximum Numbers:
+function findMinMax(numbers) {
+    if (numbers.length === 0) return undefined;
+    let min = numbers[0];
+    let max = numbers[0];
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] < min) {
+            min = numbers[i];
+        } else if (numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+    return { min, max };
+}
+
+// Test cases
+console.log(findMinMax([3, 5, 2, 8, 1])); // { min: 1, max: 8 }
+console.log(findMinMax([-10, 0, 20, 15, -5])); // { min: -10, max: 20 }
+console.log(findMinMax([])); // undefined
+// ____________________________________________________________--------------------------
+// Missing Number Identification:
+function findMissingNumber(numbers) {
+    for (let i = 0; i < numbers.length - 1; i++) {
+        if (numbers[i + 1] - numbers[i] !== 1) {
+            return numbers[i] + 1;
+        }
+    }
+    return undefined;
+}
+
+// Test case
+console.log(findMissingNumber([11, 12, 14, 15, 16, 18, 19, 20])); // 17
+
+</script>
+</html>
